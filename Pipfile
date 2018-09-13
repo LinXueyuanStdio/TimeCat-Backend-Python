@@ -1,0 +1,35 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==2.0.5"
+mysqlclient = "==1.3.12"
+djangorestframework = "==3.8.2"
+django-rest-swagger = "==2.2.0"
+django-rest-auth = "==0.9.3"
+django-allauth = "==0.35.0"
+django-enumfields = "*"
+django-filter = "==1.1.0"
+coreapi = "*"
+coreschema = "*"
+django-cors-headers = "*"
+djangorestframework-csv = "*"
+Django-environ = "==0.4.4"
+bootstrap-admin = "*"
+drf-yasg = "*"
+swagger_spec_validator = "*"
+flex = "*"
+django-crispy-forms = "*"
+django-formtools = "==2.1"
+httplib2 = "*"
+django-import-export = "*"
+django-reversion = "*"
+
+[dev-packages]
+yapf = "*"
+"autopep8" = "*"
+
+[requires]
+python_version = "3.6"
