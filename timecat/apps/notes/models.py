@@ -21,6 +21,8 @@ class NoteBook(models.Model):
     class Meta:
         db_table = "NoteBook"
         ordering = ('update_datetime', )
+        verbose_name = '笔记本'
+        verbose_name_plural = verbose_name
 
 
 class Note(models.Model):
@@ -47,4 +49,6 @@ class Note(models.Model):
     class Meta:
         db_table = "Notes"
         ordering = ('update_datetime', )
+        verbose_name = '笔记'
+        verbose_name_plural = verbose_name
 

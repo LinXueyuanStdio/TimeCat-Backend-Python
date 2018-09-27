@@ -35,7 +35,7 @@ pipenv shell
 start MySQL service, create database 'timecat'
 
 ```sql
-CREATE DATABASE timecat DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci
+CREATE DATABASE timecat DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 ```
 
 merge Django's data to MySQL

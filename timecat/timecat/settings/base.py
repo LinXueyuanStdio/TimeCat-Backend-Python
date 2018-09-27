@@ -4,10 +4,15 @@ Django settings for config project.
 
 import environ
 
+import os
+import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('project')
-
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
@@ -48,6 +53,9 @@ THIRD_PARTY_APPS = (
     'rest_framework_swagger',
     'corsheaders',
     'django_filters',
+    'captcha',
+    'pure_pagination',
+    'DjangoUeditor',
 )
 
 LOCAL_APPS = (
@@ -56,6 +64,9 @@ LOCAL_APPS = (
     'apps.schedules',
     'apps.notes',
     'apps.habits',
+    'apps.course',
+    'apps.operation',
+    'apps.organization',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -75,7 +86,7 @@ ROOT_URLCONF = 'timecat.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,6 +94,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #添加图片处理器，为了在课程列表中前面加上MEDIA_URL
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -138,21 +151,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 STATIC_ROOT = str(ROOT_DIR('staticfiles'))
-
-STATICFILES_DIRS = (
-    str(APPS_DIR.path('static')),
-)
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+# 设置上传文件的路径
 MEDIA_URL = '/media/'
-
-MEDIA_ROOT = str(APPS_DIR('media'))
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')   #指定根目录
 
 # LOGIN_URL = '/login/'
 
@@ -189,6 +197,9 @@ LOGOUT_URL = 'rest_framework:logout'
 
 # 自定义用户模型 custom user model
 AUTH_USER_MODEL = 'users.CustomUser'
+AUTHENTICATION_BACKENDS = (
+    'apps.users.views.CustomBackend',
+)
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

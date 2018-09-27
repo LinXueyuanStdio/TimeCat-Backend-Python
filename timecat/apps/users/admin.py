@@ -7,7 +7,6 @@ from apps.users.models import CustomUser
 
 
 import xadmin
-
 from xadmin import views
 
 # 创建xadmin的最基本管理器配置，并与view绑定
@@ -32,33 +31,34 @@ class CustomUserAdmin(UserAdmin):
     model = CustomUser
     list_display = ['email', 'username']
 
-admin.site.register(CustomUser, CustomUserAdmin)
 
 # 将基本配置管理与view绑定
-xadmin.site.register(views.BaseAdminView,BaseSetting)
+xadmin.site.register(views.BaseAdminView, BaseSetting)
 
 # 将title和footer信息进行注册
-xadmin.site.register(views.CommAdminView,GlobalSettings)
-# import xadmin
+xadmin.site.register(views.CommAdminView, GlobalSettings)
 
 # xadmin.site.register(CustomUser, CustomUserAdmin)
 
-# from .models import EmailVerifyRecord,Banner
+from .models import EmailVerifyRecord, Banner
 
-# #xadmin中这里是继承object，不再是继承admin
-# class EmailVerifyRecordAdmin(object):
-#     # 显示的列
-#     list_display = ['code', 'email', 'send_type', 'send_time']
-#     # 搜索的字段
-#     search_fields = ['code', 'email', 'send_type']
-#     # 过滤
-#     list_filter = ['code', 'email', 'send_type', 'send_time']
+# xadmin中这里是继承object，不再是继承admin
 
 
-# class BannerAdmin(object):
-#     list_display = ['title', 'image', 'url','index', 'add_time']
-#     search_fields = ['title', 'image', 'url','index']
-#     list_filter = ['title', 'image', 'url','index', 'add_time']
+class EmailVerifyRecordAdmin(object):
+    # 显示的列
+    list_display = ['code', 'email', 'send_type', 'send_time']
+    # 搜索的字段
+    search_fields = ['code', 'email', 'send_type']
+    # 过滤
+    list_filter = ['code', 'email', 'send_type', 'send_time']
 
-# xadmin.site.register(EmailVerifyRecord,EmailVerifyRecordAdmin)
-# xadmin.site.register(Banner,BannerAdmin)
+
+class BannerAdmin(object):
+    list_display = ['title', 'image', 'url', 'index', 'add_time']
+    search_fields = ['title', 'image', 'url', 'index']
+    list_filter = ['title', 'image', 'url', 'index', 'add_time']
+
+
+xadmin.site.register(EmailVerifyRecord, EmailVerifyRecordAdmin)
+xadmin.site.register(Banner, BannerAdmin)

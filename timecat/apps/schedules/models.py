@@ -35,6 +35,8 @@ class Plan(models.Model):
     class Meta:
         db_table = "Plans"
         ordering = ('update_datetime', )
+        verbose_name = '计划'
+        verbose_name_plural = verbose_name
 
 
 class SubPlan(models.Model):
@@ -59,6 +61,8 @@ class SubPlan(models.Model):
     class Meta:
         db_table = "SubPlans"
         ordering = ('update_datetime', )
+        verbose_name = '子计划'
+        verbose_name_plural = verbose_name
 
 
 class Task(models.Model):
@@ -91,3 +95,5 @@ class Task(models.Model):
     class Meta:
         db_table = "Schedules"
         ordering = ('update_datetime', )
+        verbose_name = '日程'
+        verbose_name_plural = verbose_name

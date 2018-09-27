@@ -39,6 +39,8 @@ class Habit(models.Model):
     class Meta:
         db_table = "Habit"
         ordering = ('update_datetime', )
+        verbose_name = '习惯'
+        verbose_name_plural = verbose_name
 
 
 class Streak(models.Model):
@@ -54,6 +56,8 @@ class Streak(models.Model):
     class Meta:
         db_table = "Streak"
         ordering = ('id', )
+        verbose_name = '持续时长'
+        verbose_name_plural = verbose_name
 
 
 class Repetition(models.Model):
@@ -67,6 +71,8 @@ class Repetition(models.Model):
     class Meta:
         db_table = "Repetition"
         ordering = ('timestamp', )
+        verbose_name = '重复'
+        verbose_name_plural = verbose_name
 
 
 class CheckMark(models.Model):
@@ -81,6 +87,8 @@ class CheckMark(models.Model):
     class Meta:
         db_table = "CheckMark"
         ordering = ('timestamp', )
+        verbose_name = '是否完成的标记'
+        verbose_name_plural = verbose_name
 
 
 
@@ -96,3 +104,5 @@ class Score(models.Model):
     class Meta:
         db_table = "Score"
         ordering = ('timestamp', )
+        verbose_name = '习惯分数'
+        verbose_name_plural = verbose_name
