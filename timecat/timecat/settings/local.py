@@ -22,9 +22,18 @@ ALLOWED_HOSTS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'accountbook',
+        'NAME': 'timecat',
         'USER': 'root',
         'PASSWORD': '122425lxy',
         'HOST': '127.0.0.1'
     }
 }
+
+# 发送邮箱
+
+EMAIL_HOST = "smtp.qq.com"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "761516186@qq.com"
+EMAIL_HOST_PASSWORD = "dwjybikeqdawhhbc"
+EMAIL_USE_TLS= True
+EMAIL_FROM = "761516186@qq.com"

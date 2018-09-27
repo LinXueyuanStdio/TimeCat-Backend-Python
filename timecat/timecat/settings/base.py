@@ -55,6 +55,7 @@ LOCAL_APPS = (
     'apps.users',
     'apps.schedules',
     'apps.notes',
+    'apps.habits',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -167,9 +168,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework_csv.renderers.CSVRenderer',
-    ),
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework_csv.renderers.CSVRenderer',
+    # ),
 }
 
 

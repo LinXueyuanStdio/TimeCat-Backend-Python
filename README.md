@@ -32,6 +32,14 @@ pipenv shell
 
 ### 初始化数据库，并创建超级用户
 
+start MySQL service, create database 'timecat'
+
+```sql
+CREATE DATABASE timecat DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci
+```
+
+merge Django's data to MySQL
+
 ```bash
 python manage.py makemigrations
 python manage.py migrate
