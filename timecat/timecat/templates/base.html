@@ -9,6 +9,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>{% block title %}zhang_derek{% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static './favicon.png' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -27,7 +28,7 @@
             <div class="top">
                 <div class="wp">
 {#                    <div class="fl"><p>服务电话：<b>33333333</b></p></div>#}
-                    <div  class="fl"><p><a style="color: white;font-size: 18px;" href="http://www.cnblogs.com/derek1184405959/"><b>我的博客园地址</b></a></p></div>
+                    <div  class="fl"><p><a style="color: white;font-size: 18px;" href="http://xichen.pub/"><b>时光猫</b></a></p></div>
                     <!--登录后跳转-->
 
                     {% if request.user.is_authenticated %}
